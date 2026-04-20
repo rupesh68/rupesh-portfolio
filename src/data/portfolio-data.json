@@ -1,0 +1,84 @@
+{
+  "personalInfo": {
+    "name": "Rupesh Mahajan",
+    "title": "Software Engineer",
+    "profileImage": "/rupesh.png",
+    "resumeLink": "https://www.dropbox.com/scl/fi/tmso4v704cokn5cunafqa/Rupesh-Mahajan-FullStack.pdf?rlkey=8m3d0hjjfbbc6luhxcpcvql6n&st=dymuoxbo&raw=1",
+    "email": "rupeshmahajan516@gmail.com",
+    "phone": "+91 9300171175",
+    "socialLinks": {
+      "linkedin": "www.linkedin.com/in/rupesh6847",
+      "github": "https://github.com/rupesh68",
+      "instagram": "https://www.instagram.com/rupesh6847"
+    }
+  },
+  "about": {
+    "paragraphs": [
+      "Full Stack Developer with 1.5 years of experience specializing in the MERN stack and Next.js ecosystem. Proven expertise in building, deploying, and managing complex, modern web applications from frontend interfaces to server-side logic and database architecture. Proficient in JavaScript (ES6+), React.js, Node.js, Express.js, and database/ORM integration ( SQLite, Prisma) to deliver high-performance, SEO-optimized, and scalable solutions. Experienced in implementing robust state management and leading execution in Agile environments.",
+      "Whether it’s crafting responsive interfaces or developing robust backend systems, I aim to deliver solutions that are both reliable and impactful."
+    ]
+  },
+  "experience": [
+    {
+      "image": "/revvknew-logo.png",
+      "title": "Full Stack Developer",
+      "company": "Revvknew Technologies Private Limited",
+      "location": "Pune, Maharashtra",
+      "start": "July 2024",
+      "end": "Present",
+      "description": [
+        "Developed a dynamic property website using Next.js, managing both frontend interfaces and backend logic to ensure high performance and SEO optimization.",
+        "Engineered a suite of internal productivity tools, including a custom Dropbox file uploading UI and a Random Time Generator, streamlining daily team operations."
+      ]
+    },
+    {
+      "image": "/indvibe-logo.jpg",
+      "title": "Frontend Developer",
+      "company": "IndVibe Infotech Private Limited",
+      "location": "Indore, Madhya Pradesh",
+      "start": "Jan 2023",
+      "end": "May 2023",
+      "description": [
+        "Engineered dynamic, component-based user interfaces in React.js, building a library of reusable components",
+        "Integrated REST APIs with state management using React Hooks and the Context API.",
+        "Collaborated within an Agile team, actively participating in code reviews to maintain high code quality."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "image": "/university-logo.svg",
+      "title": "Masters in Computer Application",
+      "institution": "Medicaps University - Indore",
+      "start": "Sep 2021",
+      "end": "May 2023",
+      "description": "A significant part of the education involves practical experience through labs and projects, which are designed to enhance problem-solving skills"
+    }
+  ],
+  "projects": [
+    {
+      "title": "FileVerse",
+      "description": "cloud storage app design",
+      "image": "/fileverse-logo.avif"
+    },
+    {
+      "title": "Propery Finder",
+      "description": "Real estate app design",
+      "image": "/propertyFinder.png"
+    }
+  ],
+  "skills": [
+    "React.js",
+    "Next.js",
+    "Tailwind CSS",
+    "TypeScript",
+    "Node.js",
+    "PostgreSQL",
+    "MySQL",
+    "SQLite",
+    "Git",
+    "HTML",
+    "CSS",
+    "JavaScript"
+  ]
+}
