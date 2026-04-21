@@ -6,9 +6,11 @@ import SkillsSection from './components/sections/skills-section';
 import ContactSection from './components/sections/contact-section';
 import Footer from './components/common/footer';
 import EducationSection from './components/sections/education-section';
+import { useVisitorTracking } from './hooks/useVisitorTracking';
 
 
 export default function App() {
+    useVisitorTracking();
   return (
     <main className="max-md:px-4">
       <HeroSection />
