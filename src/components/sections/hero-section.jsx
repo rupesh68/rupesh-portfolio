@@ -1,7 +1,6 @@
 import { ArrowRightIcon } from 'lucide-react';
 import data from '../../data/portfolio-data.json';
 
-
 export default function HeroSection() {
   const { personalInfo } = data;
   return (
@@ -110,26 +109,25 @@ export default function HeroSection() {
         src={personalInfo.profileImage}
         alt="Profile Image"
         className="size-36 rounded-full"
-        width={144}
-        height={144}
+        width={184}
+        height={184}
       />
 
       <h2 className="text-4xl md:text-6xl font-semibold mt-6 text-center">
         {personalInfo.name}
       </h2>
-      <p className="text-2xl md:text-3xl font-mono mt-6">{personalInfo.title}</p>
+      <p className="text-2xl md:text-3xl font-mono mt-6">
+        {personalInfo.title}
+      </p>
       <div className="mt-6">
-        <a
-          href={personalInfo.resumeLink}
-          target="_blank"
-        >
-          <button className="group bg-indigo-600 hover:bg-indigo-700 text-white px-7 py-2.5 rounded-lg">
+        <a href={personalInfo.resumeLink} target="_blank">
+          <button className="group bg-indigo-600 hover:bg-indigo-700 text-white px-7 py-2.5 rounded-lg cursor-pointer">
             Resume
             <ArrowRightIcon className="group-hover:translate-x-0.5 transition ml-1 size-5 inline-flex" />
           </button>
         </a>
         <a href={`mailto:${personalInfo.email}`}>
-          <button className="border border-gray-400 hover:bg-gray-100/70 px-6 py-2.5 rounded-lg ml-4">
+          <button className="border border-gray-400 hover:bg-gray-100/70 px-6 py-2.5 rounded-lg ml-4 cursor-pointer">
             Connect me
           </button>
         </a>

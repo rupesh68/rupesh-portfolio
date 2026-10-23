@@ -9,7 +9,8 @@ export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
   if (req.method === 'OPTIONS') return res.status(200).end();
-  if (req.method !== 'POST') return res.status(405).json({ error: 'Method Not Allowed' });
+  if (req.method !== 'POST')
+    return res.status(405).json({ error: 'Method Not Allowed' });
 
   const WEBHOOK_URL = process.env.SECRET_DISCORD_WEBHOOK;
 
@@ -18,12 +19,15 @@ export default async function handler(req, res) {
     const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
 
     // 1. Get the User's IP (Vercel uses x-real-ip or x-forwarded-for)
-    const ip = req.headers['x-real-ip'] || req.headers['x-forwarded-for']?.split(',')[0] || '127.0.0.1';
-// const ip = "8.8.8.8";
+    const ip =
+      req.headers['x-real-ip'] ||
+      req.headers['x-forwarded-for']?.split(',')[0] ||
+      '127.0.0.1';
+    // const ip = "8.8.8.8";
     // 2. Get Geolocation
     let locationInfo = 'Unknown Location';
     try {
-      // Note: ip-api.com is HTTP by default; some hosts block outbound HTTP. 
+      // Note: ip-api.com is HTTP by default; some hosts block outbound HTTP.
       // Using https if they support it, or staying with http.
       const geoRes = await fetch(`http://ip-api.com/json/${ip}`);
       const geoData = await geoRes.json();

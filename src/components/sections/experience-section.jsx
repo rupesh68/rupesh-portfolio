@@ -15,12 +15,7 @@ export default function ExperienceSection() {
             <div className="flex flex-col md:flex-row items-start gap-3 md:items-center justify-between w-full text-gray-500">
               <div className="flex flex-col md:flex-row items-start md:items-center gap-3">
                 <div className="bg-gray-50 border border-gray-200 rounded-lg p-3">
-                  <img
-                    src={exp.image}
-                    alt={exp.title}
-                    width={25}
-                    height={25}
-                  />
+                  <img src={exp.image} alt={exp.title} width={25} height={25} />
                 </div>
                 <div>
                   <h3 className="text-base font-medium text-gray-800">

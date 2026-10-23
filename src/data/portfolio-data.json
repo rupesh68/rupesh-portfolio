@@ -2,8 +2,8 @@
   "personalInfo": {
     "name": "Rupesh Mahajan",
     "title": "Software Developer",
-    "profileImage": "/rupesh.jpg",
-    "resumeLink": "https://www.dropbox.com/scl/fi/vy8k6c5t4v7lztgeuufd9/Rupesh_Mahajan.pdf?rlkey=j4atcstke92kv33lr3gy41qh5&st=whbstitg&raw=1",
+    "profileImage": "/Rupesh-profile.png",
+    "resumeLink": "/Rupesh_Mahajan.pdf",
     "email": "rupeshmahajan516@gmail.com",
     "phone": "+91 9300171175",
     "socialLinks": {
@@ -14,7 +14,7 @@
   },
   "about": {
     "paragraphs": [
-      "Full Stack Developer with 2 years of production experience specializing in the PERN stack and Next.js ecosystem. Proven expertise in building, deploying, and managing complex, modern web applications from frontend interfaces to server-side logic and database architecture. Proficient in TypeScript, JavaScript, React.js, Node.js, Express.js, and database integration (PostgreSQL, SQLite, Prisma) to deliver high-performance, SEO-optimized solutions. Experienced in real-time systems,",
+      "Software engineer with 2+ years of experience building scalable, API-driven applications in Agile teams, with a focus on code quality, automation and reliable delivery. Hands-on with REST APIs, event-driven real-time features, SQL and NoSQL databases, Docker and Git-based CI/CD workflows. Built internal automation tools that removed manual work. MCA graduate and published researcher, keen to apply engineering and quality practices to large-scale transaction platforms.",
       "Redis caching, Nginx/PM2 deployments, and execution in Agile environments to deliver reliable, high-impact software."
     ]
   },
@@ -27,8 +27,8 @@
       "start": "July 2024",
       "end": "Present",
       "description": [
-        "Developed a dynamic property website using Next.js, managing both frontend interfaces and backend logic to ensure high performance and SEO optimization.",
-        "Engineered a suite of internal productivity tools, including a custom Dropbox file uploading UI and a Random Time Generator, streamlining daily team operations."
+        "Developed REST APIs and database-backed services (MySQL, PostgreSQL) for an Electron desktop dashboard and SSR Next.js applications.",
+        "Automated internal workflows with a Next.js template generator and a secure Dropbox file management system."
       ]
     },
     {
@@ -58,54 +58,51 @@
   "projects": [
     {
       "title": "FileVerse",
-      "description": "cloud storage app design",
-      "image": "/fileverse-logo.avif"
+      "description": "cloud storage app",
+      "image": "/fileverse-logo.png"
     },
     {
       "title": "Propery Finder",
-      "description": "Real estate app design",
-      "image": "/propertyFinder.png"
+      "description": "Real estate app",
+      "image": "/propertyFinder.jpeg"
     }
   ],
 
   "skills": [
-    "React.js",
-    "Next.js",
-    "Tailwind CSS",
     "TypeScript",
-    "Node.js",
-    "Express.js",
-    "PostgreSQL",
-    "MySQL",
-    "SQLite",
-    "MongoDB",
-    "Prisma ORM",
-    "Mongoose ODM",
-    "Socket.IO",
-    "Redis",
-    "Bull.js",
-    "Nginx",
-    "PM2",
-    "Docker",
-    "GitHub Actions",
-    "Git",
-    "GitHub",
-    "Postman",
-    "Clerk Auth",
-    "JWT",
-    "Zod Validation",
-    "Zustand",
-    "TanStack Query",
-    "Context API",
-    "React Hooks",
+    "JavaScript (ES6+)",
     "HTML5",
     "CSS3",
-    "JavaScript (ES6+)",
-    "REST API Design",
-    "Server Actions",
+    "React.js",
+    "Next.js",
     "App Router",
-    "Recharts",
+    "Server Actions",
+    "Tailwind CSS",
     "Shadcn UI",
-    "Nodemailer"
+    "TanStack Query",
+    "Zustand",
+    "Zod Validation",
+    "Node.js",
+    "Express.js",
+    "REST API Design",
+    "tRPC",
+    "Socket.IO",
+    "PostgreSQL",
+    "MongoDB",
+    "Prisma ORM",
+    "Redis",
+    "Bull.js",
+    "Clerk Auth",
+    "JWT",
+    "Jest / Vitest",
+    "Playwright",
+    "Git",
+    "GitHub",
+    "GitHub Actions",
+    "Docker",
+    "Nginx",
+    "Linux / Shell Scripting",
+    "Vercel & AWS",
+    "Postman"
   ]
 }

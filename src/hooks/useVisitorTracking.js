@@ -9,7 +9,7 @@ async function sendDiscordNotification(message) {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ message }),
-      keepalive: true, 
+      keepalive: true,
     });
   } catch (err) {
     console.error('Notification failed', err);
@@ -21,11 +21,14 @@ export function useVisitorTracking() {
   const hasFiredLeave = useRef(false); // Prevent multiple leave pings
 
   useEffect(() => {
-    const getTimestamp = () => new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
+    const getTimestamp = () =>
+      new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
 
     // 1. Enter Event
     if (!hasFiredEnter.current) {
-      sendDiscordNotification(`🟢 **New Visitor!**\n📅 **Time:** ${getTimestamp()}`);
+      sendDiscordNotification(
+        `🟢 **New Visitor!**\n📅 **Time:** ${getTimestamp()}`,
+      );
       hasFiredEnter.current = true;
     }
 
@@ -33,7 +36,9 @@ export function useVisitorTracking() {
     const handleLeave = () => {
       if (hasFiredLeave.current) return;
       hasFiredLeave.current = true;
-      sendDiscordNotification(`🔴 **Visitor Left**\n📅 **Time:** ${getTimestamp()}`);
+      sendDiscordNotification(
+        `🔴 **Visitor Left**\n📅 **Time:** ${getTimestamp()}`,
+      );
     };
 
     // 'beforeunload' is more reliable for "closing" than visibilitychange

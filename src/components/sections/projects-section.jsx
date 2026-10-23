@@ -1,7 +1,6 @@
 import Section from '../common/section';
 import data from '../../data/portfolio-data.json';
 
-
 export default function ProjectsSection() {
   const { projects } = data;
 
@@ -11,14 +10,15 @@ export default function ProjectsSection() {
         {projects.map((project, index) => (
           <div
             key={index}
-            className="hover:-translate-y-0.5 transition duration-300 max-w-75 border border-gray-200 rounded-xl"
+            className="hover:-translate-y-0.5 transition duration-300 max-w-75 border border-gray-200 rounded-xl   bg-gray-100
+            "
           >
             <img
-              className="rounded-t-xl h-42 object-fit"
+              className="rounded-t-xl h-52 object-fit "
               src={project.image}
               alt={project.title}
-              width={300}
-              height={170}
+              width={250}
+              height={100}
             />
             <div className="p-4">
               <h3 className="text-base font-medium">{project.title}</h3>
