@@ -1,0 +1,14 @@
+# Dependencies and built files (usually covered by default, but good to be explicit)
+node_modules
+.next
+out
+
+# Next.js specific files
+.env
+.env.local
+.env.development
+.env.production
+
+# Other config files
+# If you don't want Prettier to touch your SVG files, for example:
+**/*.svg
