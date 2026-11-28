@@ -4,7 +4,7 @@ import nodemailer from 'nodemailer';
 
 const EMAIL_RE = /^[^\s@,;<>()"]+@[^\s@,;<>()"]+\.[^\s@,;<>()"]+$/;
 
-// Basic spam protection. It resets whenever Vercel starts a new instance.
+// In-memory rate limit (resets on serverless cold start)
 const WINDOW_MS = 10 * 60 * 1000;
 const MAX_PER_WINDOW = 3;
 const hits = new Map();
@@ -32,13 +32,8 @@ export default async function handler(req, res) {
     }
   }
 
-  const { email, company } = body;
-
-  // Hidden field: real visitors leave it empty, bots usually fill it.
-  if (company) return res.status(200).json({ ok: true });
-
-  const address = typeof email === 'string' ? email.trim() : '';
-  if (address.length > 254 || !EMAIL_RE.test(address)) {
+  const address = typeof body.email === 'string' ? body.email.trim() : '';
+  if (!address || address.length > 254 || !EMAIL_RE.test(address)) {
     return res.status(400).json({ error: 'Please enter a valid email address.' });
   }
 
@@ -68,11 +63,11 @@ export default async function handler(req, res) {
   });
   const from = { name: 'Rupesh Mahajan', address: GMAIL_USER };
 
-  // 1. Email to the visitor, with the resume attached
+  // 1. Send resume to visitor
   try {
     await transporter.sendMail({
       from,
-      to: { name: '', address },
+      to: address,
       subject: 'Thanks for connecting - my resume',
       text: [
         'Hi,',
@@ -92,13 +87,13 @@ export default async function handler(req, res) {
     return res.status(500).json({ error: 'Could not send the email. Please try again.' });
   }
 
-  // 2. Notification to the admin
+  // 2. Notify admin
   try {
     const time = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
     await transporter.sendMail({
       from,
       to: ADMIN_EMAIL,
-      replyTo: { name: '', address },
+      replyTo: address,
       subject: `New portfolio contact: ${address}`,
       text: `Someone submitted their email on your portfolio.\n\nEmail: ${address}\nTime: ${time} (IST)\n\nThe resume was sent to them. Reply to this email to contact them.`,
     });

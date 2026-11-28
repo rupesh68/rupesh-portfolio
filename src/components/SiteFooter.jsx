@@ -183,11 +183,11 @@ const DEFAULT_SOCIALS = [
   { label: 'Resume', href: '/resume.pdf', icon: 'link' },
 ];
 
-async function defaultSubscribeRequest(email, company) {
+async function defaultSubscribeRequest(email) {
   const res = await fetch('/api/subscribe', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ email, company }),
+    body: JSON.stringify({ email }),
   });
 
   if (!res.ok) {
@@ -201,7 +201,6 @@ export const SiteFooter = forwardRef(function SiteFooter(
   ref,
 ) {
   const [email, setEmail] = useState('');
-  const [company, setCompany] = useState('');
   const [status, setStatus] = useState('idle');
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -213,7 +212,7 @@ export const SiteFooter = forwardRef(function SiteFooter(
     try {
       setStatus('submitting');
       const handler = onSubscribe ?? defaultSubscribeRequest;
-      await handler(trimmed, company);
+      await handler(trimmed);
       setStatus('done');
       setEmail('');
     } catch (err) {
@@ -245,17 +244,6 @@ export const SiteFooter = forwardRef(function SiteFooter(
           onSubmit={handleSubmit}
           className="mt-3.5 flex items-center gap-2 rounded-2xl border border-border bg-surface p-1.5 shadow-xs transition-colors duration-200 focus-within:border-border-hover focus-within:shadow-sm"
         >
-          {/* Honeypot for bots, hidden from real visitors */}
-          <input
-            type="text"
-            name="company"
-            value={company}
-            onChange={(e) => setCompany(e.target.value)}
-            tabIndex={-1}
-            autoComplete="off"
-            aria-hidden="true"
-            className="hidden"
-          />
           <input
             type="email"
             required
