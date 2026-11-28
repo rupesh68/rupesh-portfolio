@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "api/subscribe.js": {
+      "includeFiles": "public/resume.pdf"
+    }
+  }
+}
