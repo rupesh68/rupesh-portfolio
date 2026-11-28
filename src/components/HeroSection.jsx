@@ -42,19 +42,18 @@ export const HeroSection = forwardRef(function HeroSection(props, ref) {
         </div>
 
         <p className="text-base leading-7 text-muted sm:text-lg sm:leading-8">
-          Software engineer with 2+ years of experience building scalable,
-          API-driven applications in Agile teams, with a focus on code quality,
-          automation and reliable delivery. Hands-on with REST APIs,
-          event-driven real-time features, SQL and NoSQL databases, Docker and
-          Git-based CI/CD workflows. Built internal automation tools that
-          removed manual work. MCA graduate and published researcher, keen to
-          apply engineering and quality practices to large-scale transaction
-          platforms.
+          Full Stack Developer with 2+ years of experience building and scaling
+          production apps with React.js, Next.js, Node.js, Express.js,
+          TypeScript, MySQL, and Prisma ORM. Managed 5–6 live websites across
+          VPS servers with Nginx, GitHub Actions CI/CD, Redis caching, and
+          WebSockets while shipping email automation, real-time analytics, and
+          internal EMS tools.
         </p>
 
         <p className="text-base leading-7 text-muted sm:text-lg sm:leading-8">
-          Redis caching, Nginx/PM2 deployments, and execution in Agile
-          environments to deliver reliable, high-impact software.
+          Looking to join a high-ownership product team as a Full Stack or
+          Next.js Engineer to build fast, reliable, and scalable web platforms
+          with measurable impact.
         </p>
       </div>
 
