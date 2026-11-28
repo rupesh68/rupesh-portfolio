@@ -1,3 +1,4 @@
+import fs from 'node:fs';
 import path from 'node:path';
 import nodemailer from 'nodemailer';
 
@@ -22,7 +23,16 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { email, company } = req.body || {};
+  let body = req.body || {};
+  if (typeof body === 'string') {
+    try {
+      body = JSON.parse(body);
+    } catch {
+      return res.status(400).json({ error: 'Invalid JSON body.' });
+    }
+  }
+
+  const { email, company } = body;
 
   // Hidden field: real visitors leave it empty, bots usually fill it.
   if (company) return res.status(200).json({ ok: true });
@@ -41,6 +51,15 @@ export default async function handler(req, res) {
   if (!GMAIL_USER || !GMAIL_APP_PASSWORD || !ADMIN_EMAIL) {
     console.error('Missing email environment variables');
     return res.status(500).json({ error: 'Email service is not configured.' });
+  }
+
+  const resumePath = path.join(process.cwd(), 'public', 'resume.pdf');
+  const attachments = fs.existsSync(resumePath)
+    ? [{ filename: 'Rupesh-Mahajan-Resume.pdf', path: resumePath }]
+    : [];
+
+  if (attachments.length === 0) {
+    console.warn('Resume file not found at:', resumePath);
   }
 
   const transporter = nodemailer.createTransport({
@@ -66,20 +85,14 @@ export default async function handler(req, res) {
         'https://github.com/rupesh68',
         'https://www.linkedin.com/in/rupesh6847',
       ].join('\n'),
-      attachments: [
-        {
-          filename: 'Rupesh-Mahajan-Resume.pdf',
-          path: path.join(process.cwd(), 'public', 'resume.pdf'),
-        },
-      ],
+      attachments,
     });
   } catch (err) {
     console.error('Visitor email failed:', err);
     return res.status(500).json({ error: 'Could not send the email. Please try again.' });
   }
 
-  // 2. Notification to the admin. A failure here is only logged,
-  // because the visitor has already received the resume.
+  // 2. Notification to the admin
   try {
     const time = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
     await transporter.sendMail({
