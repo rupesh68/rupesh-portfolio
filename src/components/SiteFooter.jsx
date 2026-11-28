@@ -266,11 +266,17 @@ export const SiteFooter = forwardRef(function SiteFooter(
         </form>
 
         {status === 'done' ? (
-          <p role="status" className="mt-2.5 text-xs font-medium text-emerald-700 dark:text-emerald-400">
+          <p
+            role="status"
+            className="mt-2.5 text-xs font-medium text-emerald-700 dark:text-emerald-400"
+          >
             Sent! Check your inbox (or spam folder) for the resume.
           </p>
         ) : status === 'error' ? (
-          <p role="alert" className="mt-2.5 text-xs font-medium text-rose-600 dark:text-rose-400">
+          <p
+            role="alert"
+            className="mt-2.5 text-xs font-medium text-rose-600 dark:text-rose-400"
+          >
             {errorMessage}
           </p>
         ) : (

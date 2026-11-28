@@ -34,12 +34,18 @@ export default async function handler(req, res) {
 
   const address = typeof body.email === 'string' ? body.email.trim() : '';
   if (!address || address.length > 254 || !EMAIL_RE.test(address)) {
-    return res.status(400).json({ error: 'Please enter a valid email address.' });
+    return res
+      .status(400)
+      .json({ error: 'Please enter a valid email address.' });
   }
 
-  const ip = String(req.headers['x-forwarded-for'] || 'unknown').split(',')[0].trim();
+  const ip = String(req.headers['x-forwarded-for'] || 'unknown')
+    .split(',')[0]
+    .trim();
   if (isRateLimited(ip)) {
-    return res.status(429).json({ error: 'Too many requests. Please try again later.' });
+    return res
+      .status(429)
+      .json({ error: 'Too many requests. Please try again later.' });
   }
 
   const { GMAIL_USER, GMAIL_APP_PASSWORD, ADMIN_EMAIL } = process.env;
@@ -84,12 +90,16 @@ export default async function handler(req, res) {
     });
   } catch (err) {
     console.error('Visitor email failed:', err);
-    return res.status(500).json({ error: 'Could not send the email. Please try again.' });
+    return res
+      .status(500)
+      .json({ error: 'Could not send the email. Please try again.' });
   }
 
   // 2. Notify admin
   try {
-    const time = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
+    const time = new Date().toLocaleString('en-IN', {
+      timeZone: 'Asia/Kolkata',
+    });
     await transporter.sendMail({
       from,
       to: ADMIN_EMAIL,

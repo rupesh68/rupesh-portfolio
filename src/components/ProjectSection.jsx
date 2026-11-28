@@ -1218,7 +1218,7 @@ export const ProjectIndex = React.forwardRef(function ProjectIndex(
       </p>
       <div
         className={cn(
-          'grid grid-cols-1 gap-2 @min-[640px]:grid-cols-[minmax(0,1fr)_minmax(0,1.25fr)] mt-4',
+          'grid grid-cols-1 gap-2 @min-[640px]:grid-cols-[minmax(0,1fr)_minmax(0,1.25fr)] mt-4 sidebar-0',
           imageSide === 'left' &&
             '@min-[640px]:grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)]',
         )}
@@ -1240,12 +1240,19 @@ export const ProjectIndex = React.forwardRef(function ProjectIndex(
             {/* <span className="tabular-nums">{count} projects</span> */}
           </motion.div>
 
-          <motion.ul
+          {/* <motion.ul
             layoutScroll
             role="list"
             onKeyDown={onKeyDown}
             onPointerLeave={() => setHoverRow(null)}
             className="flex max-h-96 flex-1 flex-col overflow-y-auto overscroll-contain"
+          > */}
+          <motion.ul
+            layoutScroll
+            role="list"
+            onKeyDown={onKeyDown}
+            onPointerLeave={() => setHoverRow(null)}
+            className="flex max-h-96 flex-1 flex-col overflow-y-auto overscroll-contain scrollbar-none"
           >
             {projects.map((pr, i) => {
               const on = i === active;
@@ -1420,7 +1427,7 @@ export const ProjectIndex = React.forwardRef(function ProjectIndex(
           {current && (
             <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-4">
               <div className="min-w-0 text-white">
-                <p className="text-xs font-medium text-white/75">
+                {/* <p className="text-xs font-medium text-white/75">
                   Project{' '}
                   <span className="relative inline-grid overflow-hidden align-bottom tabular-nums">
                     <AnimatePresence mode="popLayout" initial={false}>
@@ -1440,7 +1447,7 @@ export const ProjectIndex = React.forwardRef(function ProjectIndex(
                     </AnimatePresence>
                   </span>{' '}
                   / {pad(count)}
-                </p>
+                </p> */}
 
                 <div className="relative mt-1 overflow-hidden">
                   <AnimatePresence mode="popLayout" initial={false}>

@@ -11,13 +11,21 @@ export function GithubProjects({ includeForks, liveOnly, images, ...props }) {
   });
 
   if (loading) {
-    return <p role="status" className="text-sm text-subtle">Loading projects…</p>;
+    return (
+      <p role="status" className="text-sm text-subtle">
+        Loading projects…
+      </p>
+    );
   }
   if (error) {
     return (
       <p role="alert" className="text-sm text-subtle">
         {error}{' '}
-        <button type="button" onClick={retry} className="cursor-pointer underline">
+        <button
+          type="button"
+          onClick={retry}
+          className="cursor-pointer underline"
+        >
           Retry
         </button>
       </p>
