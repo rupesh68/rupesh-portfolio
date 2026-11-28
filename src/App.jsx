@@ -4,7 +4,7 @@ import { HeroSection } from './components/HeroSection';
 import { DottedUnderline } from './components/comman/DottedUnderline';
 import { DailyQuoteSection } from './components/DailyQuoteSection';
 import { TechSkills } from './components/TechSkills';
-import { ProjectIndex } from './components/ProjectSection';
+// import { ProjectIndex } from './components/ProjectSection';
 import { GitHubActivity } from './components/GitHubActivity';
 import { getGitHubStats } from './lib/github';
 import { CompaniesWorkedWith } from './components/CompaniesWorkedWith';
@@ -12,6 +12,7 @@ import { BlurAccordion } from './components/BlurAccordion';
 import { FocusAreas } from './components/FocusAreas';
 import { WritingList } from './components/WritingList';
 import { WritingSection } from './components/WritingSection';
+import { GithubProjects } from './components/comman/GithubProjects';
 
 const DEFAULT_GITHUB = {
   username: import.meta.env.VITE_GITHUB_USERNAME || 'rupesh68',
@@ -44,7 +45,7 @@ function HomePage() {
       <DottedUnderline />
       <TechSkills />
       <DottedUnderline />
-      <ProjectIndex />
+      <GithubProjects />
       <DottedUnderline />
       <GitHubActivity
         username={github.username}
